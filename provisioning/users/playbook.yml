@@ -1,21 +1,3 @@
 - hosts: all
   tasks:
-    - name: "Add '{{ admin_user }}' group"
-      group:
-        name: "{{ admin_user }}"
-        state: present
-    - name: "Add '{{ admin_user }}' user"
-      user:
-        name: "{{ admin_user }}"
-        shell: /bin/bash
-        groups:
-          - "{{ admin_user }}"
-          - docker
-          - systemd-journal
-    - name: Sync SSH keys
-      authorized_key:
-        user: "{{ admin_user }}"
-        key: "{{ item }}"
-        state: present
-      loop:
-        - https://github.com/kamko.keys
+    - import_tasks: admin.yml
