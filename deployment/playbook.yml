@@ -1,0 +1,14 @@
+- hosts: all
+  tasks:
+    - set_fact:
+        admin_user: kamko
+        admin_dir: "/home/kamko"
+      tags:
+        - always
+
+- name: Install basic tools
+  import_playbook: tools/playbook.yml
+  tags: tools
+
+- name: Create admin user
+  import_playbook: users/playbook.yml
