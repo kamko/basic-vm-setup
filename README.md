@@ -2,6 +2,8 @@
 
 Simple Ansible playbook used for basic setup of new VMs.
 
+`./provisioning/provision.sh <host>`
+
 ## what's included
 
 - admin user (kamko with ssh keys from github)
